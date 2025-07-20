@@ -17,12 +17,13 @@ This is a **Gefrierschrank-Verwaltungsapp** (Freezer Management App) - a Progres
 - **Offline Capabilities**: PWA with IndexedDB for local storage and sync
 
 ### Technical Stack (Planned)
-- **Frontend**: React or Vue.js with PWA functionality
-- **Backend**: Node.js with Express or Python with FastAPI
-- **Database**: PostgreSQL or MySQL
-- **Authentication**: JWT-based
-- **File Handling**: Multer for uploads, Sharp.js for image compression
+- **Frontend**: React with TypeScript and PWA functionality
+- **Backend**: Java Spring Boot 3.x with Maven
+- **Database**: PostgreSQL with Spring Data JPA/Hibernate
+- **Authentication**: Spring Security with JWT
+- **File Handling**: Spring Web Multipart, ImageIO for image compression
 - **PWA Features**: Service Worker, Web App Manifest, Cache API
+- **Build Tools**: Maven (backend), Vite (frontend)
 
 ### Database Schema Structure
 ```sql
