@@ -1,0 +1,27 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.0.5  ready in 68 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+15:23:24 [vite] (client) page reload src/main.tsx
+15:24:36 [vite] (client) page reload src/main.tsx
+15:24:42 [vite] (client) page reload src/main.tsx
+15:40:46 [vite] (client) page reload index.html
+15:40:46 [vite] (client) page reload src/main.tsx
+15:40:46 [vite] (client) page reload test.html
+15:40:46 [vite] changed tsconfig file detected: /Users/maik.hirthe/Documents/Dev/gs-mgmt/frontend/tsconfig.app.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+15:40:46 [vite] changed tsconfig file detected: /Users/maik.hirthe/Documents/Dev/gs-mgmt/frontend/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+15:40:46 [vite] vite.config.ts changed, restarting server...
+15:40:46 [vite] server restarted.
+15:58:42 [vite] changed tsconfig file detected: /Users/maik.hirthe/Documents/Dev/gs-mgmt/frontend/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+15:58:50 [vite] (client) page reload index.html
+16:05:32 [vite] (client) ✨ new dependencies optimized: react/jsx-dev-runtime, react, react-dom/client, @tanstack/react-query, react-router-dom, lucide-react
+16:05:32 [vite] (client) ✨ optimized dependencies changed. reloading
+16:10:06 [vite] (client) page reload src/services/auth.ts
+16:10:10 [vite] (client) page reload src/services/api.ts
+16:10:33 [vite] (client) page reload src/services/auth.ts
+16:10:38 [vite] (client) page reload src/services/api.ts

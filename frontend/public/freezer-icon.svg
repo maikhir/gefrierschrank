@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <rect x="10" y="20" width="80" height="70" rx="8" ry="8" fill="#e6f3ff" stroke="#646cff" stroke-width="3"/>
+  <rect x="15" y="25" width="70" height="8" fill="#646cff"/>
+  <rect x="15" y="45" width="70" height="2" fill="#ccc"/>
+  <rect x="15" y="65" width="70" height="2" fill="#ccc"/>
+  <circle cx="25" cy="60" r="2" fill="#646cff"/>
+  <circle cx="35" cy="70" r="1.5" fill="#81c784"/>
+  <circle cx="45" cy="55" r="1.5" fill="#81c784"/>
+  <rect x="60" y="50" width="20" height="15" rx="2" fill="#ffb74d"/>
+  <text x="50" y="15" text-anchor="middle" font-family="Arial" font-size="12" fill="#646cff">❄️</text>
+</svg>
