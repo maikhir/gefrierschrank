@@ -7,7 +7,23 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(gh issue create:*)",
-      "Bash(gh label create:*)"
+      "Bash(gh label create:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(mvn clean:*)",
+      "Bash(mvn test:*)",
+      "Bash(mvn:*)",
+      "Bash(ls:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(npm ls:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(rm:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx vite:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

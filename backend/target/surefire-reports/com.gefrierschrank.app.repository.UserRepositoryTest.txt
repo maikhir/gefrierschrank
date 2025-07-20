@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.gefrierschrank.app.repository.UserRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.485 s -- in com.gefrierschrank.app.repository.UserRepositoryTest

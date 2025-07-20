@@ -1,0 +1,17 @@
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/CreateUserRequest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/config/DataInitializer.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/security/UserPrincipal.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/repository/UserRepository.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/security/AuthTokenFilter.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/service/UserService.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/entity/User.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/service/UserDetailsServiceImpl.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/LoginResponse.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/config/SecurityConfig.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/UserDto.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/GefrierschrankApplication.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/LoginRequest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/security/JwtUtils.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/AuthController.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/MessageResponse.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/UserController.java

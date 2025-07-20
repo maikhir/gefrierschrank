@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    
+  security:
+    user:
+      name: testadmin
+      password: testpass
+
+jwt:
+  secret: myTestSecretKey12345678901234567890123456789012345678901234567890
+  expiration: 3600000 # 1 hour for testing
+
+cors:
+  allowed-origins: "http://localhost:3000"
+
+logging:
+  level:
+    com.gefrierschrank: DEBUG
+    org.springframework.security: WARN
+    org.springframework.data: WARN
+    org.hibernate: WARN
+    org.h2: WARN

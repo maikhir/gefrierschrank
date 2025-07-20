@@ -1,0 +1,6 @@
+com/gefrierschrank/app/repository/UserRepositoryTest.class
+com/gefrierschrank/app/security/JwtUtilsTest.class
+com/gefrierschrank/app/controller/AuthControllerTest.class
+com/gefrierschrank/app/config/TestDataInitializer.class
+com/gefrierschrank/app/service/UserServiceTest.class
+com/gefrierschrank/app/GefrierschrankApplicationTests.class
