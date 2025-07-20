@@ -52,7 +52,7 @@ function ItemList() {
 
   const handleCategoryFilter = (categoryId: number) => {
     setCategoryFilter(categoryId);
-    updateSearchParams({ categoryId: categoryId || undefined });
+    updateSearchParams({ categoryId: categoryId ? categoryId.toString() : undefined });
   };
 
   const handleExpiryFilter = (filter: string) => {
