@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------
+Test set: com.gefrierschrank.app.repository.ItemRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 1.884 s <<< FAILURE! -- in com.gefrierschrank.app.repository.ItemRepositoryTest
+com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserWithFilters_NoFilters_ShouldReturnAllUserItems -- Time elapsed: 0.022 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "Chicken Breast"
+ but was: "Broccoli"
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserWithFilters_NoFilters_ShouldReturnAllUserItems(ItemRepositoryTest.java:222)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserAndCategoryOrderByCreatedAtDesc_ShouldReturnCategorySpecificItems -- Time elapsed: 0.012 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "Chicken Breast"
+ but was: "Beef Steak"
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserAndCategoryOrderByCreatedAtDesc_ShouldReturnCategorySpecificItems(ItemRepositoryTest.java:143)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.gefrierschrank.app.repository.ItemRepositoryTest.findRecentItemsByUser_WithPageable_ShouldReturnRecentItems -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "Chicken Breast"
+ but was: "Broccoli"
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at com.gefrierschrank.app.repository.ItemRepositoryTest.findRecentItemsByUser_WithPageable_ShouldReturnRecentItems(ItemRepositoryTest.java:308)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserOrderByCreatedAtDesc_ShouldReturnUserItemsInDescOrder -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "Chicken Breast"
+ but was: "Broccoli"
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserOrderByCreatedAtDesc_ShouldReturnUserItemsInDescOrder(ItemRepositoryTest.java:111)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserOrderByCreatedAtDesc_WithPageable_ShouldReturnPagedResults -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "Chicken Breast"
+ but was: "Broccoli"
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at com.gefrierschrank.app.repository.ItemRepositoryTest.findByUserOrderByCreatedAtDesc_WithPageable_ShouldReturnPagedResults(ItemRepositoryTest.java:132)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

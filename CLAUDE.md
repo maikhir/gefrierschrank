@@ -16,14 +16,13 @@ This is a **Gefrierschrank-Verwaltungsapp** (Freezer Management App) - a Progres
 - **Photo Integration**: Single photo per item with automatic compression to 200x200px/50KB
 - **Offline Capabilities**: PWA with IndexedDB for local storage and sync
 
-### Technical Stack (Planned)
-- **Frontend**: React with TypeScript and PWA functionality
-- **Backend**: Java Spring Boot 3.x with Maven
-- **Database**: PostgreSQL with Spring Data JPA/Hibernate
-- **Authentication**: Spring Security with JWT
-- **File Handling**: Spring Web Multipart, ImageIO for image compression
-- **PWA Features**: Service Worker, Web App Manifest, Cache API
-- **Build Tools**: Maven (backend), Vite (frontend)
+### Technical Stack (Implemented)
+- **Frontend**: React with TypeScript and PWA functionality (Vite build system)
+- **Backend**: Spring Boot 3.2.0 with Java 21 and Maven
+- **Database**: H2 Database (file-based, with H2 Console enabled)
+- **Authentication**: Spring Security with JWT (using JJWT library)
+- **Additional Libraries**: OpenCSV for CSV processing, SpringDoc OpenAPI for API documentation
+- **Testing**: Spring Boot Test, Spring Security Test, Testcontainers
 
 ### Database Schema Structure
 ```sql
@@ -52,13 +51,79 @@ Notifications (id, user_id, item_id, notification_type, sent_at, is_read)
 - Touch-optimized interface for kitchen/shopping use
 - Offline-first approach with sync capabilities
 
+## Architecture Overview
+
+### Backend Structure
+- **Package Structure**: `com.gefrierschrank.app` with standard Spring Boot layout
+  - `controller/`: REST API endpoints (Auth, Category, Item)
+  - `entity/`: JPA entities (User, Item, Category, ExpiryType)
+  - `repository/`: Spring Data JPA repositories
+  - `service/`: Business logic layer
+  - `dto/`: Data Transfer Objects
+  - `security/`: JWT authentication and security configuration
+  - `config/`: Security and application configuration
+
+### Database Configuration
+- **H2 Database**: File-based storage at `./data/gefrierschrank_db`
+- **H2 Console**: Accessible at `/h2-console` (development only)
+- **JPA Settings**: Auto DDL update enabled, SQL logging available
+
+### Security & Authentication
+- **JWT Authentication**: Custom filter chain with JWT token validation
+- **CORS Configuration**: Configured for local development (ports 3000, 5173)
+- **JWT Secret**: Configured in application.yml (should be externalized for production)
+
+## Development Commands
+
+### Backend (Spring Boot)
+```bash
+# Build and run backend
+cd backend
+mvn clean install
+mvn spring-boot:run
+
+# Run tests
+mvn test
+
+# Build without tests
+mvn clean package -DskipTests
+```
+
+### Frontend (React/Vite)
+```bash
+# Development server (assuming standard Vite setup)
+cd frontend
+npm install
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Database Access
+- **H2 Console**: http://localhost:8080/h2-console
+- **JDBC URL**: `jdbc:h2:file:./data/gefrierschrank_db`
+- **Username**: `sa`
+- **Password**: (empty)
+
+### API Documentation
+- **Swagger UI**: http://localhost:8080/swagger-ui.html (when running)
+- **OpenAPI JSON**: http://localhost:8080/v3/api-docs
+
 ## Development Notes
 
-This repository currently contains only the PRD (Product Requirements Document). The actual application implementation has not yet begun. When developing:
+### Key Implementation Details
+1. **Database**: Currently using H2 for development (file-based persistence)
+2. **Authentication**: JWT-based with Spring Security filter chain
+3. **API Design**: RESTful endpoints with proper HTTP methods and status codes
+4. **Entity Relationships**: JPA entities with proper mappings between User, Item, Category
+5. **CORS**: Configured for local frontend development
 
-1. Follow the PWA architecture described in the PRD
-2. Implement mobile-first responsive design
-3. Ensure DSGVO compliance for German users
-4. Focus on offline-first functionality
-5. Implement the role-based permission system (Admin/User)
-6. Use the specified unit systems for different food categories
+### Important Files
+- **Backend Entry Point**: `backend/src/main/java/com/gefrierschrank/app/GefrierschrankApplication.java`
+- **Security Config**: `backend/src/main/java/com/gefrierschrank/app/config/SecurityConfig.java`
+- **Database Config**: `backend/src/main/resources/application.yml`
+- **Frontend Entry**: `frontend/index.html` (React app structure incomplete)

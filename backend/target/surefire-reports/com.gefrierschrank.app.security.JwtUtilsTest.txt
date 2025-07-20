@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: com.gefrierschrank.app.security.JwtUtilsTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.076 s <<< FAILURE! -- in com.gefrierschrank.app.security.JwtUtilsTest
+com.gefrierschrank.app.security.JwtUtilsTest.validateJwtToken_TokenWithDifferentSecret_ShouldReturnFalse -- Time elapsed: 0 s <<< ERROR!
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.verifySignature(DefaultJwtParser.java:340)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:577)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821)
+	at com.gefrierschrank.app.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.gefrierschrank.app.security.JwtUtilsTest.validateJwtToken_TokenWithDifferentSecret_ShouldReturnFalse(JwtUtilsTest.java:242)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.gefrierschrank.app.security.JwtUtilsTest.validateJwtToken_InvalidSignature_ShouldReturnFalse -- Time elapsed: 0.001 s <<< ERROR!
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.verifySignature(DefaultJwtParser.java:340)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:577)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821)
+	at com.gefrierschrank.app.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.gefrierschrank.app.security.JwtUtilsTest.validateJwtToken_InvalidSignature_ShouldReturnFalse(JwtUtilsTest.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
