@@ -1,0 +1,9 @@
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/security/JwtUtilsTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/controller/ItemControllerUnitTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/controller/CategoryControllerTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/service/CategoryServiceTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/security/UserDetailsServiceImplTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/service/ItemServiceTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/security/JwtAuthenticationFilterTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/repository/ItemRepositoryTest.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/test/java/com/gefrierschrank/app/controller/AuthControllerTest.java
