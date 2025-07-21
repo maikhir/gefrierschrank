@@ -1,6 +1,7 @@
 package com.gefrierschrank.app.service;
 
 import com.gefrierschrank.app.dto.CreateItemRequest;
+import com.gefrierschrank.app.dto.CsvItemDto;
 import com.gefrierschrank.app.dto.ItemDto;
 import com.gefrierschrank.app.dto.UpdateItemRequest;
 import com.gefrierschrank.app.entity.Category;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -252,5 +253,90 @@ public class ItemService {
         if (remainder.compareTo(java.math.BigDecimal.ZERO) != 0) {
             throw new IllegalArgumentException("Quantity must be in steps of: " + category.getUnitStep());
         }
+    }
+    
+    // CSV Import functionality
+    public Map<String, Object> importItemsFromCsv(List<CsvItemDto> csvItems, String username) {
+        logger.info("Starting CSV import for user: {} with {} items", username, csvItems.size());
+        
+        User user = getUserByUsername(username);
+        Map<String, Category> categoryMap = buildCategoryMap();
+        
+        List<ItemDto> successfulImports = new ArrayList<>();
+        List<String> errors = new ArrayList<>();
+        int skippedCount = 0;
+        
+        for (CsvItemDto csvItem : csvItems) {
+            try {
+                if (!csvItem.isValid()) {
+                    skippedCount++;
+                    errors.add("Row " + csvItem.getRowNumber() + ": " + String.join(", ", csvItem.getErrors()));
+                    continue;
+                }
+                
+                // Find category by name
+                Category category = categoryMap.get(csvItem.getCategoryName().toLowerCase());
+                if (category == null) {
+                    skippedCount++;
+                    errors.add("Row " + csvItem.getRowNumber() + ": Category not found: " + csvItem.getCategoryName());
+                    continue;
+                }
+                
+                // Create item
+                Item item = new Item(
+                    csvItem.getName(),
+                    category,
+                    csvItem.getQuantity(),
+                    csvItem.getUnit(),
+                    csvItem.getExpiryDate(),
+                    com.gefrierschrank.app.entity.ExpiryType.BEST_BEFORE,
+                    user
+                );
+                
+                if (csvItem.getDescription() != null && !csvItem.getDescription().trim().isEmpty()) {
+                    item.setDescription(csvItem.getDescription());
+                }
+                
+                // Validate quantity constraints (but don't fail the whole import)
+                try {
+                    validateQuantityConstraints(csvItem.getQuantity(), category);
+                } catch (IllegalArgumentException e) {
+                    // Log warning but continue with import
+                    logger.warn("Quantity validation warning for row {}: {}", csvItem.getRowNumber(), e.getMessage());
+                }
+                
+                Item savedItem = itemRepository.save(item);
+                successfulImports.add(new ItemDto(savedItem));
+                
+            } catch (Exception e) {
+                skippedCount++;
+                errors.add("Row " + csvItem.getRowNumber() + ": " + e.getMessage());
+                logger.warn("Error importing item from row {}: {}", csvItem.getRowNumber(), e.getMessage());
+            }
+        }
+        
+        Map<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("totalProcessed", csvItems.size());
+        result.put("successfulImports", successfulImports.size());
+        result.put("skippedItems", skippedCount);
+        result.put("importedItems", successfulImports);
+        result.put("errors", errors);
+        result.put("message", String.format("Import completed: %d successful, %d skipped", 
+                                          successfulImports.size(), skippedCount));
+        
+        logger.info("CSV import completed for user: {} - {} successful, {} skipped", 
+                   username, successfulImports.size(), skippedCount);
+        
+        return result;
+    }
+    
+    private Map<String, Category> buildCategoryMap() {
+        return categoryRepository.findAll()
+                .stream()
+                .collect(Collectors.toMap(
+                    category -> category.getName().toLowerCase(),
+                    category -> category
+                ));
     }
 }

@@ -28,6 +28,12 @@ spring:
       path: /h2-console
       settings:
         web-allow-others: true
+  
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 15MB
 
 security:
   cors:
@@ -41,3 +47,9 @@ app:
   jwt:
     secret: myVerySecureSecretKeyThatIsLongEnoughForJWTHMACAlgorithmAndMeetsThe256BitRequirement
     expiration: 86400
+  upload:
+    directory: ./uploads
+    images:
+      directory: images
+    csv:
+      directory: csv

@@ -14,6 +14,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -155,6 +156,21 @@ public class GlobalExceptionHandler {
         );
         
         return new ResponseEntity<>(error, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<ErrorResponse> handleMaxUploadSizeExceeded(
+            MaxUploadSizeExceededException ex, WebRequest request) {
+        logger.warn("Upload size exceeded: {}", ex.getMessage());
+        
+        ErrorResponse error = new ErrorResponse(
+                "FILE_TOO_LARGE",
+                "Upload file size exceeds the maximum allowed size",
+                HttpStatus.PAYLOAD_TOO_LARGE.value(),
+                LocalDateTime.now()
+        );
+        
+        return new ResponseEntity<>(error, HttpStatus.PAYLOAD_TOO_LARGE);
     }
 
     @ExceptionHandler(Exception.class)

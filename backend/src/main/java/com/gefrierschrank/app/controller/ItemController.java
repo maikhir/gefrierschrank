@@ -2,6 +2,7 @@ package com.gefrierschrank.app.controller;
 
 import com.gefrierschrank.app.constants.AppConstants;
 import com.gefrierschrank.app.dto.CreateItemRequest;
+import com.gefrierschrank.app.dto.CsvImportRequest;
 import com.gefrierschrank.app.dto.ItemDto;
 import com.gefrierschrank.app.dto.ItemFilterRequest;
 import com.gefrierschrank.app.dto.UpdateItemRequest;
@@ -176,5 +177,35 @@ public class ItemController {
         
         long count = itemService.getExpiringSoonCount(days, authentication.getName());
         return ResponseEntity.ok(count);
+    }
+    
+    // CSV Import endpoints
+    @PostMapping("/import/csv")
+    @Operation(summary = "Import items from CSV", description = "Import items from a processed CSV file")
+    public ResponseEntity<Map<String, Object>> importItemsFromCsv(
+            @Valid @RequestBody CsvImportRequest request,
+            Authentication authentication) {
+        
+        logger.info("POST /api/items/import/csv - Importing {} items for user: {}", 
+                   request.getItems().size(), authentication.getName());
+        
+        try {
+            Map<String, Object> result = itemService.importItemsFromCsv(request.getItems(), authentication.getName());
+            return ResponseEntity.ok(result);
+            
+        } catch (IllegalArgumentException e) {
+            logger.warn("Invalid CSV import request: {}", e.getMessage());
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("error", e.getMessage());
+            return ResponseEntity.badRequest().body(errorResponse);
+            
+        } catch (Exception e) {
+            logger.error("Error importing CSV items: {}", e.getMessage(), e);
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("error", "Failed to import items");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 }

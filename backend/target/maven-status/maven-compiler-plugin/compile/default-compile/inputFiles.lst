@@ -1,4 +1,5 @@
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/entity/Category.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/CsvItemDto.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/security/UserPrincipal.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/ItemController.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/service/DataInitializationService.java
@@ -7,7 +8,9 @@
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/repository/CategoryRepository.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/repository/ItemRepository.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/CategoryController.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/FileUploadController.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/service/CategoryService.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/CsvImportRequest.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/LoginRequest.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/security/JwtUtils.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/controller/AuthController.java
@@ -22,6 +25,7 @@
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/constants/AppConstants.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/CreateItemRequest.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/entity/User.java
+/Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/service/FileUploadService.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/config/DevelopmentSecurityConfig.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/config/SecurityConfig.java
 /Users/maik.hirthe/Documents/Dev/gs-mgmt/backend/src/main/java/com/gefrierschrank/app/dto/ItemFilterRequest.java

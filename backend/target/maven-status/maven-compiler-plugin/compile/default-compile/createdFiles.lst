@@ -4,6 +4,7 @@ com/gefrierschrank/app/entity/Item.class
 com/gefrierschrank/app/dto/LoginRequest.class
 com/gefrierschrank/app/config/SecurityConfig.class
 com/gefrierschrank/app/GefrierschrankApplication.class
+com/gefrierschrank/app/service/FileUploadService.class
 com/gefrierschrank/app/dto/UpdateItemRequest.class
 com/gefrierschrank/app/security/UserDetailsServiceImpl.class
 com/gefrierschrank/app/entity/User$Role.class
@@ -21,6 +22,8 @@ com/gefrierschrank/app/entity/Category.class
 com/gefrierschrank/app/repository/ItemRepository.class
 com/gefrierschrank/app/dto/JwtResponse.class
 com/gefrierschrank/app/mapper/ItemMapper.class
+com/gefrierschrank/app/dto/CsvImportRequest.class
+com/gefrierschrank/app/controller/FileUploadController.class
 com/gefrierschrank/app/service/ItemService.class
 com/gefrierschrank/app/entity/User.class
 com/gefrierschrank/app/exception/GlobalExceptionHandler$ErrorResponse.class
@@ -30,4 +33,5 @@ com/gefrierschrank/app/repository/CategoryRepository.class
 com/gefrierschrank/app/exception/GlobalExceptionHandler.class
 com/gefrierschrank/app/repository/UserRepository.class
 com/gefrierschrank/app/constants/AppConstants.class
+com/gefrierschrank/app/dto/CsvItemDto.class
 com/gefrierschrank/app/security/UserPrincipal.class
