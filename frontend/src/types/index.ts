@@ -63,3 +63,49 @@ export interface AuthContextType {
   logout: () => void;
   isLoading: boolean;
 }
+
+export interface FileUploadResponse {
+  success: boolean;
+  filePath?: string;
+  message: string;
+  error?: string;
+}
+
+export interface CsvItem {
+  rowNumber: number;
+  name: string;
+  categoryName: string;
+  quantity: number;
+  unit: string;
+  expiryDate?: string;
+  description?: string;
+  errors: string[];
+  valid: boolean;
+}
+
+export interface CsvUploadResponse {
+  success: boolean;
+  data?: {
+    items: CsvItem[];
+    totalItems: number;
+    filePath: string;
+    validItems: number;
+  };
+  message: string;
+  error?: string;
+}
+
+export interface CsvImportRequest {
+  items: CsvItem[];
+  skipInvalidItems: boolean;
+}
+
+export interface CsvImportResponse {
+  success: boolean;
+  totalProcessed: number;
+  successfulImports: number;
+  skippedItems: number;
+  importedItems: Item[];
+  errors: string[];
+  message: string;
+}

@@ -1,5 +1,16 @@
 import axios from 'axios';
-import { LoginRequest, LoginResponse, Item, CreateItemRequest, UpdateItemRequest, Category } from '../types';
+import { 
+  LoginRequest, 
+  LoginResponse, 
+  Item, 
+  CreateItemRequest, 
+  UpdateItemRequest, 
+  Category,
+  FileUploadResponse,
+  CsvUploadResponse,
+  CsvImportRequest,
+  CsvImportResponse
+} from '../types';
 
 const api = axios.create({
   baseURL: '/api',
@@ -78,6 +89,11 @@ export const itemsAPI = {
     const response = await api.get<Item[]>('/items/expired');
     return response.data;
   },
+
+  importFromCsv: async (csvData: CsvImportRequest): Promise<CsvImportResponse> => {
+    const response = await api.post<CsvImportResponse>('/items/import/csv', csvData);
+    return response.data;
+  },
 };
 
 export const categoriesAPI = {
@@ -88,6 +104,37 @@ export const categoriesAPI = {
 
   getById: async (id: number): Promise<Category> => {
     const response = await api.get<Category>(`/categories/${id}`);
+    return response.data;
+  },
+};
+
+export const filesAPI = {
+  uploadImage: async (file: File): Promise<FileUploadResponse> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await api.post<FileUploadResponse>('/files/upload/image', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+
+  uploadCsv: async (file: File): Promise<CsvUploadResponse> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await api.post<CsvUploadResponse>('/files/upload/csv', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+
+  deleteImage: async (filePath: string): Promise<{ success: boolean; message: string }> => {
+    const response = await api.delete(`/files/image?filePath=${encodeURIComponent(filePath)}`);
     return response.data;
   },
 };
